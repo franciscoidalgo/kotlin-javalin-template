@@ -22,8 +22,6 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-databind:2.14.2")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.14.2")
 
-    // Config read
-    implementation("org.apache.commons:commons-configuration2:2.8.0")
 
     // Logging
     implementation("org.slf4j:slf4j-api:2.0.6")
@@ -36,7 +34,11 @@ dependencies {
 
     // Persistence
     implementation("com.h2database:h2:2.1.214")
-    implementation("org.hibernate:hibernate-core:5.6.15.Final")
+    implementation("jakarta.persistence:jakarta.persistence-api:3.1.0")
+    implementation("org.hibernate.orm:hibernate-core:6.1.7.Final")
+    implementation("org.hibernate.common:hibernate-commons-annotations:6.0.6.Final")
+
+    implementation("com.zaxxer:HikariCP:5.0.1")
     implementation("org.reflections:reflections:0.10.2")
 
 
@@ -48,7 +50,7 @@ tasks.test {
 }
 
 kotlin {
-    jvmToolchain(8)
+    jvmToolchain(11)
 }
 
 application {
