@@ -1,5 +1,6 @@
 import config.ExceptionHandler
 import config.ScopesEnum
+import config.injection.ConfigInjectionModule
 import config.injection.JsonMapperInjectionModule
 import config.injection.RepositoryInjectionModule
 import config.injection.SessionFactoryInjectionModule
@@ -18,7 +19,8 @@ class WebServer {
     private val injector = KotlinInjector(
         SessionFactoryInjectionModule(),
         RepositoryInjectionModule(),
-        JsonMapperInjectionModule()
+        JsonMapperInjectionModule(),
+        ConfigInjectionModule()
     )
 
     private val app = Javalin.create {
